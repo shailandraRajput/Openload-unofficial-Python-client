@@ -47,6 +47,7 @@ class Openload:
         url=("https://api.openload.co/1/file/dl?file={}&ticket={}&captcha_response={}".format(fi,ticket,captcha))
         data = urllib.request.urlopen(url).read()
         jsondata = json.loads(data.decode("UTF-8"))
+        print(url)
         if(jsondata["status"] == 200):
             print("----------------------------------------")
             url = (jsondata["result"]["url"])
@@ -67,16 +68,34 @@ class Openload:
         else:
             print("Please Enter right Captch Code")
 
+    def upload():
+        fileurl = str(input("Please Enter File URL To Upload To Openload-: "))
+        urltoupload = ("https://api.openload.co/1/remotedl/add?login={}&key={}&url={}".format(ui, pa,fileurl))
+        data = urllib.request.urlopen(urltoupload).read()
+        jsondata = json.loads(data.decode("UTF-8"))
 
+        if (jsondata["status"] == 200):
+            print("----------------------------------------")
+            FI = (jsondata["result"]["folderid"])
+            print("Uploading file to Folder ID -: {}".format(FI))
+            print("Your File is Uploading Please Wait a Moment:) ")
+        else:
+            print("Plese check your file url:( ")
+
+   
 def main():
     ol=Openload
     print("What You Went to do?")
     what=int(input("Click 1 To Information of Your Account\n"
-                   "Click 2 To Download File-: "))
+                   "Click 2 To Download File \n"
+                   "Click 3 To Remote Upload File-: "))
     if(what==1):
         return ol.info()
     elif(what==2):
         return ol.Download()
+    elif(what==3):
+        return ol.upload()
+   
 if __name__ == '__main__':main()
 
 
