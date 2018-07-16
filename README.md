@@ -24,8 +24,7 @@ Don't Block API Downloads in User Pannel
 
 # Comming Soon
 
-- Upload file
-- Remote Upload
+- Remote Upload status
 - Folder rename
 - Folder Delete
 - Moving Files
