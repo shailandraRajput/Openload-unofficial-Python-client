@@ -27,6 +27,7 @@ Don't Block API Downloads in User Pannel
 - create download ticket and download file
 - upload file through Remote Upload
 - Rename Files
+- Delete Files
 
 # Comming Soon
 
