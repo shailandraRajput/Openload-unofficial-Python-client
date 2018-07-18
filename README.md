@@ -22,6 +22,12 @@ If you enter right captcha you will get Direct file Download url.
 
 Don't Block API Downloads in User Pannel
 
+# Feature
+- Get Information Of Your account including total balance 
+- create download ticket and download file
+- upload file through Remote Upload
+- Rename Files
+
 # Comming Soon
 
 - Remote Upload status
