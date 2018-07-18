@@ -91,6 +91,17 @@ class Openload:
             print("Your File is Remain sucessfully :)")
         else:
             print("An Error Occure")
+            
+    def DeleteFile():
+        fileIdD=input("Please Enter File Id-: ")
+
+        urltoDelete = ("https://api.openload.co/1/file/delete?login={}&key={}&file={}".format(ui, pa,fileIdD))
+        data = urllib.request.urlopen(urltoDelete).read()
+        jsondata = json.loads(data.decode("UTF-8"))
+        if (jsondata["status"] == 200):
+            print("Your File is Deleted sucessfully :)")
+        else:
+            print("An Error Occure")
    
 def main():
     ol=Openload
@@ -98,7 +109,8 @@ def main():
     what=int(input("Click 1 To Information of Your Account\n"
                    "Click 2 To Download File \n"
                    "Click 3 To Remote Upload File \n"
-                   "Click 4 to Remain Files -: "))
+                   "Click 4 to Remain Files \n"
+                   "Click 5 To Delete File -: "))
     if(what==1):
         return ol.info()
     elif(what==2):
@@ -107,6 +119,8 @@ def main():
         return ol.upload()
    elif(what==4):
         return ol.remainFile()
+   elif (what == 5):
+        return ol.DeleteFile()
 if __name__ == '__main__':main()
 
 
