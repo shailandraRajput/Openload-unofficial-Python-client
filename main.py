@@ -81,21 +81,32 @@ class Openload:
             print("Your File is Uploading Please Wait a Moment:) ")
         else:
             print("Plese check your file url:( ")
-
+    def remainFile():
+        fileId=input("Please Enter File Id-: ")
+        NewName=input("Please Enter New File name-: ")
+        urltoupload = ("https://api.openload.co/1/file/rename?login={}&key={}&file={}&name={}".format(ui, pa,fileId,NewName))
+        data = urllib.request.urlopen(urltoupload).read()
+        jsondata = json.loads(data.decode("UTF-8"))
+        if (jsondata["status"] == 200):
+            print("Your File is Remain sucessfully :)")
+        else:
+            print("An Error Occure")
    
 def main():
     ol=Openload
     print("What You Went to do?")
     what=int(input("Click 1 To Information of Your Account\n"
                    "Click 2 To Download File \n"
-                   "Click 3 To Remote Upload File-: "))
+                   "Click 3 To Remote Upload File \n"
+                   "Click 4 to Remain Files -: "))
     if(what==1):
         return ol.info()
     elif(what==2):
         return ol.Download()
     elif(what==3):
         return ol.upload()
-   
+   elif(what==4):
+        return ol.remainFile()
 if __name__ == '__main__':main()
 
 
