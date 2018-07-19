@@ -81,6 +81,7 @@ class Openload:
             print("Your File is Uploading Please Wait a Moment:) ")
         else:
             print("Plese check your file url:( ")
+            
     def remainFile():
         fileId=input("Please Enter File Id-: ")
         NewName=input("Please Enter New File name-: ")
@@ -91,6 +92,17 @@ class Openload:
             print("Your File is Remain sucessfully :)")
         else:
             print("An Error Occure")
+            
+    def remainFolder():
+        folderId=input("Please Enter Folder Id-: ")
+        NewFName=input("Please Enter New Folder name-: ")
+        urltoupload = ("https://api.openload.co/1/file/renamefolder?login={}&key={}&folder={}&name={}".format(ui, pa,folderId,NewFName))
+        data = urllib.request.urlopen(urltoupload).read()
+        jsondata = json.loads(data.decode("UTF-8"))
+        if (jsondata["status"] == 200):
+            print("Your File is Remain sucessfully :)")
+        else:
+            print("Please Check Folder ID")
             
     def DeleteFile():
         fileIdD=input("Please Enter File Id-: ")
@@ -103,23 +115,25 @@ class Openload:
         else:
             print("An Error Occure")
    
-def main():
-    ol=Openload
+ ol=Openload
     print("What You Went to do?")
     what=int(input("Click 1 To Information of Your Account\n"
                    "Click 2 To Download File \n"
                    "Click 3 To Remote Upload File \n"
                    "Click 4 to Remain Files \n"
-                   "Click 5 To Delete File -: "))
+                   "Click 5 To Remain Folder \n"
+                   "Click 6 To Delete File -:"))
     if(what==1):
         return ol.info()
     elif(what==2):
         return ol.Download()
     elif(what==3):
         return ol.upload()
-   elif(what==4):
+    elif(what==4):
         return ol.remainFile()
-   elif (what == 5):
+    elif (what==5):
+        return ol.remainFolder()
+    elif (what == 6):
         return ol.DeleteFile()
 if __name__ == '__main__':main()
 
