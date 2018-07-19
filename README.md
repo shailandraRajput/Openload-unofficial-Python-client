@@ -28,10 +28,14 @@ Don't Block API Downloads in User Pannel
 - upload file through Remote Upload
 - Rename Files
 - Delete Files
+- Folder rename
 
 # Comming Soon
 
 - Remote Upload status
-- Folder rename
+- Get Splash Image
+- Show running file converts
+- Converting Files
+
 - Folder Delete
 - Moving Files
