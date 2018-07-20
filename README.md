@@ -29,6 +29,7 @@ Don't Block API Downloads in User Pannel
 - Rename Files
 - Delete Files
 - Folder rename
+- Convert File
 
 # Comming Soon
 
@@ -36,6 +37,5 @@ Don't Block API Downloads in User Pannel
 - Get Splash Image
 - Show running file converts
 - Converting Files
-
 - Folder Delete
 - Moving Files
