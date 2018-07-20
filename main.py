@@ -115,6 +115,17 @@ class Openload:
         else:
             print("An Error Occure")
    
+
+    def ConvertFile():
+        File= input("Please enter File ID Which you went to Convert:- ")
+        ConvertURL=("https://api.openload.co/1/file/convert?login={}&key={}&file={}").format(ui,pa,File)
+        data = urllib.request.urlopen(ConvertURL).read()
+        jsondata = json.loads(data.decode("UTF-8"))
+        print(jsondata)
+        if (jsondata["status"] == 200):
+            print("Convertion Started Sucessfullly :)")
+        else:
+            print("Please Check file ID")
  ol=Openload
     print("What You Went to do?")
     what=int(input("Click 1 To Information of Your Account\n"
@@ -122,7 +133,8 @@ class Openload:
                    "Click 3 To Remote Upload File \n"
                    "Click 4 to Remain Files \n"
                    "Click 5 To Remain Folder \n"
-                   "Click 6 To Delete File -:"))
+                   "Click 6 To Delete File \n"
+                   "Click 7 to Convert File-:"))
     if(what==1):
         return ol.info()
     elif(what==2):
@@ -135,6 +147,9 @@ class Openload:
         return ol.remainFolder()
     elif (what == 6):
         return ol.DeleteFile()
-if __name__ == '__main__':main()
+    elif (what==7):
+        return ol.ConvertFile()
+
+    if __name__ == '__main__':main()
 
 
